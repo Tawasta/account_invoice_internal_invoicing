@@ -33,9 +33,11 @@ class AccountInvoice(models.Model):
                                 payment_term, partner_bank_id, company_id)
 
         # Update internal invoice fields
-        res['value'].update(
-            self.onchange_partner(cr, uid, ids, partner_id)[0]['value']
-        )
+        vals = self.onchange_partner(cr, uid, ids, partner_id)
+        if vals:
+            res['value'].update(
+                vals[0]['value']
+            )
 
         return res
 
