@@ -3,7 +3,7 @@
         <record id="account_invoice_form_internal_invoice" model="ir.ui.view">
 			<field name="name">Account invoice form internal invoice</field>
 			<field name="model">account.invoice</field>
-			<field name="inherit_id" ref=">account.invoice_form"/>
+			<field name="inherit_id" ref="account.invoice_form"/>
 			<field name="priority" eval="20" />
 			
 			<field name="arch" type="xml">
