@@ -5,3 +5,7 @@ from openerp import models, api, fields
 class AccountInvoice(models.Model):
 
     _inherit = 'account.invoice'
+
+    @api.onchange('partner_id')
+    def onchange_partner(self):
+        pass
