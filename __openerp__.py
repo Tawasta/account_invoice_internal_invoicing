@@ -33,6 +33,6 @@ Features
 * Adds a possibility to create an internal invoice
 ''',
     'data': [
-
+        'view/account_invoice_form.xml',
     ],
 }
