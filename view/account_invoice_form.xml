@@ -8,7 +8,8 @@
 			
 			<field name="arch" type="xml">
 				<field name="fiscal_position" position="after">
-					<field name="internal_invoice" />
+					<field name="internal_invoice_shown" invisible="1"/>
+					<field name="internal_invoice" attrs="{'invisible': [('internal_invoice_shown','=',False)]}"/>
 				</field>
 				
 			</field>
