@@ -23,9 +23,10 @@ class AccountInvoice(models.Model):
         )
 
     @api.multi
-    def onchange_partner_id(self, type, partner_id, date_invoice=False,
-                            payment_term=False, partner_bank_id=False,
-                            company_id=False):
+    def onchange_partner_id(
+        self, type, partner_id, date_invoice=False,
+        payment_term=False, partner_bank_id=False, company_id=False
+    ):
 
         partners = self.get_internal_partners()
 
@@ -37,8 +38,10 @@ class AccountInvoice(models.Model):
             internal_invoice = False
 
         res = super(AccountInvoice, self).\
-            onchange_partner_id(type, partner_id, date_invoice,
-                                payment_term, partner_bank_id, company_id)
+            onchange_partner_id(
+                type, partner_id, date_invoice, 
+                payment_term, partner_bank_id, company_id
+            )
 
         # Supporting the old API
         res['value']['internal_invoice_shown'] = internal_invoice_shown
@@ -54,13 +57,15 @@ class AccountInvoice(models.Model):
         if self.internal_invoice:
             for invoice_line in self.invoice_line:
                 invoice_line.account_id = \
-                    invoice_line._get_internal_account(self.type,
-                                                       invoice_line.product_id)
+                    invoice_line._get_internal_account(
+                        self.type, invoice_line.product_id
+                    )
         else:
             for invoice_line in self.invoice_line:
                 invoice_line.account_id = \
-                    invoice_line._get_external_account(self.type,
-                                                       invoice_line.product_id)
+                    invoice_line._get_external_account(
+                        self.type, invoice_line.product_id
+                    )
 
     def get_internal_partners(self):
         # Gets internal partner ids
