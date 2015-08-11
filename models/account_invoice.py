@@ -22,6 +22,9 @@ class AccountInvoice(models.Model):
             states={'draft': [('readonly', False)]},
         )
 
+    ''' Don't change the "type" even when it's a reserved name
+        Some old objects call it as a keyword.
+    '''
     @api.multi
     def onchange_partner_id(
         self, type, partner_id, date_invoice=False,
@@ -39,7 +42,7 @@ class AccountInvoice(models.Model):
 
         res = super(AccountInvoice, self).\
             onchange_partner_id(
-                type, partner_id, date_invoice, 
+                type, partner_id, date_invoice,
                 payment_term, partner_bank_id, company_id
             )
 
