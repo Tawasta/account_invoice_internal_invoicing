@@ -24,17 +24,22 @@ class AccountInvoiceLine(models.Model):
 
             product = self.env['product.product'].browse(product)
 
-            if type in ('out_invoice', 'out_refund'):
-                account = product.property_account_income_internal \
-                    or product.categ_id.property_account_income_internal_categ
-            else:
-                account = product.property_account_expense_internal \
-                    or product.categ_id.property_account_expense_internal_categ
-
-            fpos = self.env['account.fiscal.position'].browse(fposition_id)
-            account = fpos.map_account(account)
+            account = self._get_internal_account(type, product, fposition_id)
 
             if account:
                 res['value']['account_id'] = account.id
 
         return res
+
+    def _get_internal_account(self, invoice_type, product, fposition_id):
+        if invoice_type in ('out_invoice', 'out_refund'):
+            account = product.property_account_income_internal \
+                or product.categ_id.property_account_income_internal_categ
+        else:
+            account = product.property_account_expense_internal \
+                or product.categ_id.property_account_expense_internal_categ
+
+        fpos = self.env['account.fiscal.position'].browse(fposition_id)
+        account = fpos.map_account(account)
+
+        return account
