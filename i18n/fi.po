@@ -1,0 +1,70 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_invoice_internal_invoicing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-11 09:54+0000\n"
+"PO-Revision-Date: 2015-08-11 12:56+0200\n"
+"Last-Translator: Jarmo Kortetjärvi <jarmo@futurable.fi>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fi\n"
+"X-Generator: Poedit 1.7.5\n"
+
+#. module: account_invoice_internal_invoicing
+#: field:product.category,property_account_expense_internal_categ:0
+#: field:product.product,property_account_expense_internal:0
+msgid "Internal Expense Account"
+msgstr "Sisäinen menotili"
+
+#. module: account_invoice_internal_invoicing
+#: field:product.category,property_account_income_internal_categ:0
+#: field:product.product,property_account_income_internal:0
+msgid "Internal Income Account"
+msgstr "Sisäinen tulotili"
+
+#. module: account_invoice_internal_invoicing
+#: field:account.invoice,internal_invoice:0
+msgid "Internal invoice"
+msgstr "Sisäinen lasku"
+
+#. module: account_invoice_internal_invoicing
+#: field:account.invoice,internal_invoice_shown:0
+msgid "Internal invoice shown"
+msgstr "Internal invoice shown"
+
+#. module: account_invoice_internal_invoicing
+#: model:ir.model,name:account_invoice_internal_invoicing.model_account_invoice
+msgid "Invoice"
+msgstr "Lasku"
+
+#. module: account_invoice_internal_invoicing
+#: model:ir.model,name:account_invoice_internal_invoicing.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Laskun rivi"
+
+#. module: account_invoice_internal_invoicing
+#: help:account.invoice,internal_invoice:0
+msgid "Invoice within the company group. These invoices will be handled differently in the accounting."
+msgstr "Yritysryhmän sisällä kulkeva lasku. Nämä laskut käsitellään kirjanpidossa eri tavalla."
+
+#. module: account_invoice_internal_invoicing
+#: model:ir.model,name:account_invoice_internal_invoicing.model_product_product
+msgid "Product"
+msgstr "Tuote"
+
+#. module: account_invoice_internal_invoicing
+#: model:ir.model,name:account_invoice_internal_invoicing.model_product_category
+msgid "Product Category"
+msgstr "Tuoteryhmä"
+
+#. module: account_invoice_internal_invoicing
+#: view:account.invoice:account_invoice_internal_invoicing.account_invoice_form_internal_invoice
+msgid "{'type': type, 'active_id': active_id, 'internal_invoice': internal_invoice}"
+msgstr "{'type': type, 'active_id': active_id, 'internal_invoice': internal_invoice}"
