@@ -10,10 +10,12 @@ class ProductProduct(models.Model):
         "account.account",
         "Internal Income Account",
         company_dependent=True,
+        domain=[("type", '=', "other")],
     )
 
     property_account_expense_internal = fields.Many2one(
         "account.account",
         "Internal Expense Account",
         company_dependent=True,
+        domain=[("type", '=', "other")],
     )
