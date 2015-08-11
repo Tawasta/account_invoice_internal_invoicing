@@ -35,5 +35,6 @@ Features
     'data': [
         'view/account_invoice_form.xml',
         'view/product_product_form.xml',
+        'view/product_category_form.xml',
     ],
 }
