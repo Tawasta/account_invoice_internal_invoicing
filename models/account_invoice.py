@@ -10,12 +10,16 @@ class AccountInvoice(models.Model):
         fields.Boolean(
             'Internal invoice',
             default=False,
-            help="Invoice within the company group. These invoices will be handled differently in the accounting."
+            help="Invoice within the company group. These invoices will be handled differently in the accounting.",
+            readonly=True,
+            states={'draft': [('readonly', False)]},
         )
     internal_invoice_shown = \
         fields.Boolean(
             'Internal invoice shown',
             default=False,
+            readonly=True,
+            states={'draft': [('readonly', False)]},
         )
 
     @api.multi
