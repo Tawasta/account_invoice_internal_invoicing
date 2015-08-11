@@ -26,20 +26,19 @@ class AccountInvoice(models.Model):
         partners = self.get_internal_partners()
 
         if partner_id in partners:
-            self.internal_invoice_shown = True
-            self.internal_invoice = True
+            internal_invoice_shown = True
+            internal_invoice = True
         else:
-            self.internal_invoice_shown = False
-            self.internal_invoice = False
+            internal_invoice_shown = False
+            internal_invoice = False
 
         res = super(AccountInvoice, self).\
             onchange_partner_id(type, partner_id, date_invoice,
                                 payment_term, partner_bank_id, company_id)
 
         # Supporting the old API
-        res = {'value': {}}
-        res['value']['internal_invoice_shown'] = self.internal_invoice_shown
-        res['value']['internal_invoice'] = self.internal_invoice
+        res['value']['internal_invoice_shown'] = internal_invoice_shown
+        res['value']['internal_invoice'] = internal_invoice
 
         return res
 
