@@ -15,7 +15,7 @@
 {
     'name': 'Account Invoice Internal Invoicing',
     'category': 'Account',
-    'version': '0.1',
+    'version': '0.2',
     'author': 'Oy Tawasta Technologies Ltd.',
     'website': 'http://www.tawasta.fi',
     'depends': ['account'],
@@ -30,7 +30,9 @@ Features
 --------
 
 * Adds internal income and expense accounts for products
+* Adds internal income and expense accounts for product categories
 * Adds a possibility to create an internal invoice
+* Automatically suggests internal accounts for internal invoices
 ''',
     'data': [
         'view/account_invoice_form.xml',
