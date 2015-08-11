@@ -46,8 +46,24 @@ class AccountInvoice(models.Model):
 
         return res
 
+    @api.onchange('internal_invoice')
+    @api.depends('invoice_line')
+    def onchange_internal_invoice(self):
+
+        # Changes product line accounts
+        if self.internal_invoice:
+            for invoice_line in self.invoice_line:
+                invoice_line.account_id = \
+                    invoice_line._get_internal_account(self.type,
+                                                       invoice_line.product_id)
+        else:
+            for invoice_line in self.invoice_line:
+                invoice_line.account_id = \
+                    invoice_line._get_external_account(self.type,
+                                                       invoice_line.product_id)
+
     def get_internal_partners(self):
-        # Get internal partner ids
+        # Gets internal partner ids
         companies = self.env['res.company'].search([])
 
         partners = []
